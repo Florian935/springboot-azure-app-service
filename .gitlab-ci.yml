@@ -1,0 +1,27 @@
+image: docker:latest
+services:
+  - docker:dind
+
+variables:
+  DOCKER_DRIVER: overlay
+
+stages:
+  - build
+  - push
+
+docker_build:
+  stage: build
+  only:
+    - master
+  script:
+    - docker build -t ${CI_REGISTRY_IMAGE}:latest .
+
+docker_push:
+  stage: push
+  when: manual
+  only:
+    - master
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+  script:
+    - docker push ${CI_REGISTRY_IMAGE}:latest
