@@ -6,11 +6,10 @@ variables:
   DOCKER_DRIVER: overlay
 
 stages:
-  - build
   - push
 
-docker_build:
-  stage: build
+docker_push:
+  stage: push
   when: manual
   only:
     - master
