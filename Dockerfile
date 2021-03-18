@@ -12,4 +12,6 @@ WORKDIR /app
 
 COPY --from=MAVEN_BUILD /build/target/*.jar /app/backend-api.jar
 
+EXPOSE 8000
+
 ENTRYPOINT ["java", "-jar", "backend-api.jar"]
