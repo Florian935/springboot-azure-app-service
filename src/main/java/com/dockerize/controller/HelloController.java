@@ -12,4 +12,10 @@ public class HelloController {
     public String helloController() {
         return "Hello World !";
     }
+
+
+    @GetMapping("/azure")
+    public String helloController() {
+        return "Hello Azure App Service !";
+    }
 }
