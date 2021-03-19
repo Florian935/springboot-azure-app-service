@@ -10,7 +10,6 @@ stages:
 
 docker_push:
   stage: push
-  when: manual
   except:
     - master
   script:
