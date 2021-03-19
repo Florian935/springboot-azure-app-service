@@ -15,7 +15,7 @@ public class HelloController {
 
 
     @GetMapping("/azure")
-    public String helloController() {
+    public String helloAzure() {
         return "Hello Azure App Service !";
     }
 }
